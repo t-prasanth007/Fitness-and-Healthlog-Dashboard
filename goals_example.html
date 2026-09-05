@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="fitness.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <script src="heallthlog.js"></script>
+        <style>
+            .goals-grid{
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap:25px;
+                padding: 20px;
+                
+            }    
+        
+            
+            .goal-card {
+            border: 1px solid #ddd;
+            border-radius: 8px; 
+            width: 100%; 
+            display: flex;
+            flex-direction: column;
+            background-color: lightblue;
+            padding: 15px; 
+            box-sizing: border-box;
+        }            
+        
+        .goal-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: steelblue;
+            font-weight: bold;
+        }
+
+        
+        .progress-bar-container {
+            width: 100%;
+            background-color: whitesmoke;
+            border-radius: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 12px;
+            background-color: steelblue;
+            border-radius: 10px;
+            transition: width 0.4s ease;
+        }
+
+        .goal-stats {
+            display: flex;
+            justify-content: space-between;
+            font-family: Arial, sans-serif;
+            font-size: 0.9rem;
+        }            
+        </style>
+
+    </head>
+    <body>
+        <nav class="sidebar" id="sidebar">
+    
+    <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">◀</button>
+
+    <div class="img1">
+        <img src="never_giveup.jpg" alt="User" width="40" height="40"/>
+        <a href="Fitness_healthlog_Project.html" class="nav-text">Dashboard</a>
+    <hr/>    
+    </div>
+    
+    <ul class="dashboard-element">
+        <li><a href="workouts.html"><span class="icon">🏋️</span><span class="nav-text">Workouts</span></a></li>
+        <li><a href="nutrition.html"><span class="icon">🍎</span><span class="nav-text">Nutrition</span></a></li>
+        <li><a href="health.html"><span class="icon">📊</span><span class="nav-text">Health Stats</span></a></li>
+        <li><a href="goals.html"><span class="icon">🎯</span><span class="nav-text">Goals</span></a></li>
+        <li><a href="reports.html"><span class="icon">📝</span><span class="nav-text">Reports</span></a></li>
+    </ul>
+
+    <div class="sidebar-logout">
+        <a href="login_page.html"><span class="icon">🚪</span><span class="nav-text">Logout</span></a>
+    </div>
+</nav>
+
+<header>
+    <div>        
+        <h1>My fitness goals</h1>
+            <p>Track your personal milestones and target benchmarks</p>
+            </div>
+            <div class="search-container">
+                <span class="search-icon">&#128269;</span>
+                <input type="search" placeholder="Search">
+            </div>
+            <div class="setting-container">
+                <a href="#" class="nav-text1"><i class="fas fa-cog"></i><span >Settings</span></a>
+                <a href="#" class="nav-text1"><i class="fas fa-bell"></i><span>Notifications</span></a>
+                <a href="#" class="nav-text1"><i class="fas fa-user"></i><span>Account</span></a>
+            </div>
+        </header>
+
+        
+        <main class="main-container">
+            
+<section class="summary-badges" style="display: flex; gap: 20px; padding: 0 20px 20px 20px; flex-wrap: wrap;">
+    <div class="badge-card" style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #ddd; flex: 1; min-width: 180px; display: flex; align-items: center; gap: 15px;">
+        <div style="background: #e6f2ff; padding: 12px; border-radius: 50%; color: steelblue;"><i class="fa-solid fa-trophy"></i></div>
+        <div>
+            <h4 style="margin: 0; color: #666; font-size: 0.85rem; text-transform: uppercase;">Completed</h4>
+            <span style="font-size: 1.5rem; font-weight: bold; color: #333;">4 Goals</span>
+        </div>
+    </div>
+    <div class="badge-card" style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #ddd; flex: 1; min-width: 180px; display: flex; align-items: center; gap: 15px;">
+        <div style="background: #fff3cd; padding: 12px; border-radius: 50%; color: #ffc107;"><i class="fa-solid fa-fire"></i></div>
+        <div>
+            <h4 style="margin: 0; color: #666; font-size: 0.85rem; text-transform: uppercase;">Current Streak</h4>
+            <span style="font-size: 1.5rem; font-weight: bold; color: #333;">7 Days</span>
+        </div>
+    </div>
+    <div class="badge-card" style="background: white; padding: 15px; border-radius: 8px; border: 1px solid #ddd; flex: 1; min-width: 180px; display: flex; align-items: center; gap: 15px;">
+        <div style="background: #d4edda; padding: 12px; border-radius: 50%; color: #28a745;"><i class="fa-solid fa-chart-line"></i></div>
+        <div>
+            <h4 style="margin: 0; color: #666; font-size: 0.85rem; text-transform: uppercase;">Avg. Progress</h4>
+            <span style="font-size: 1.5rem; font-weight: bold; color: #333;">68.6%</span>
+        </div>
+    </div>
+</section>
+
+            <section class="goals-grid">
+                <!-- Append this card inside your existing <section class="goals-grid"> container -->
+<div class="goal-card add-goal-dashed" style="border: 2px dashed #3498db; background: transparent; display: flex; align-items: center; justify-content: center; min-height: 160px; cursor: pointer; transition: background 0.3s;">
+    <div style="text-align: center; color: #3498db;">
+        <i class="fa-solid fa-circle-plus" style="font-size: 2.5rem; margin-bottom: 10px; display: block;"></i>
+        <span style="font-weight: bold; font-family: sans-serif;">Create New Goal</span>
+    </div>
+</div>
+
+                <div class="goal-card">
+                    <div class="goal-header">
+                        <i class="fa-solid fa-weight-scale weight"></i>
+                        <h3>Weight Loss</h3>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 75%"></div>
+                    </div>
+                    <div class="goal-stats">
+                        <span>Current : 78 kg</span>
+                        <span>Target: 72 kg</span>
+                    </div>
+                </div>
+
+                <div class="goal-card">
+                    <div class="goal-header">
+                        <i class="fa-solid fa-person-running"></i>
+                        <h3>Weekly Cardio running</h3>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                    <div class="goal-stats">
+                        <span>Current : 8 km</span>
+                        <span>Target: 20 km</span>
+                    </div>
+                </div>
+
+                <div class="goal-card">
+                    <div class="goal-header">
+                        <i class="fa-solid fa-water"></i>
+                        <h3>Daily Water Intake</h3>  
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" style="width: 90%"></div>
+                    </div>
+                    <div class="goal-stats">
+                        <span>Current : 3.2 L</span>
+                        <span>Target: 3.5 L</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Strength Training -->
+<div class="goal-card">
+    <div class="goal-header">
+        <i class="fa-solid fa-dumbbell"></i>
+        <h3>Bench Press Target</h3>
+    </div>
+    <div class="progress-bar-container">
+        <div class="progress-bar" style="width: 80%"></div>
+    </div>
+    <div class="goal-stats">
+        <span>Current : 80 kg</span>
+        <span>Target: 100 kg</span>
+    </div>
+</div>
+
+<!-- Card 5: Daily Sleep Consistency -->
+<div class="goal-card">
+    <div class="goal-header">
+        <i class="fa-solid fa-bed"></i>
+        <h3>Daily Sleep Duration</h3>
+    </div>
+    <div class="progress-bar-container">
+        <div class="progress-bar" style="width: 87%"></div>
+    </div>
+    <div class="goal-stats">
+        <span>Current : 7.0 hrs</span>
+        <span>Target: 8.0 hrs</span>
+    </div>
+</div>
+
+<!-- Card 6: Active Calorie Burn -->
+<div class="goal-card">
+    <div class="goal-header">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Daily Active Calories</h3>
+    </div>
+    <div class="progress-bar-container">
+        <div class="progress-bar" style="width: 60%"></div>
+    </div>
+    <div class="goal-stats">
+        <span>Current : 450 kcal</span>
+        <span>Target: 750 kcal</span>
+    </div>
+</div>
+
+                
+            </section>
+            <!-- Insert this container right below your </main> tag closure, or inside the main element beneath the grid -->
+<section class="habits-checklist" style="margin: 20px; padding: 20px; background: white; border-radius: 8px; border: 1px solid #ddd; font-family: sans-serif;">
+    <h3 style="margin-top: 0; color: steelblue; border-bottom: 2px solid whitesmoke; padding-bottom: 10px;"><i class="fa-solid fa-calendar-check" style="margin-right: 10px;"></i>Daily Habits Checklist</h3>
+    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+        <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 0.95rem; color: #444;">
+            <input type="checkbox" checked style="width: 18px; height: 18px; accent-color: steelblue;">
+            <span style="text-decoration: line-through; color: #aaa;">Stretch for 10 minutes in the morning</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 0.95rem; color: #444;">
+            <input type="checkbox" style="width: 18px; height: 18px; accent-color: steelblue;">
+            <span>Hit daily macro protein requirements (130g)</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 12px; cursor: pointer; font-size: 0.95rem; color: #444;">
+            <input type="checkbox" style="width: 18px; height: 18px; accent-color: steelblue;">
+            <span>No fast food or added processed sugars today</span>
+        </label>
+    </div>
+</section>
+
+        </main>
+        
+
+        
+    </body>
+</html>

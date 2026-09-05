@@ -1,0 +1,54 @@
+ /* Simple tab adjustments */
+        .main-container {
+            margin-left: 200px;
+            padding: 20px;
+            transition: margin-left 0.3s ease;
+        }
+        .sidebar.collapsed ~ .main-container {
+            margin-left: 70px;
+        }
+        .nutrition-row {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        .box {
+            flex: 1;
+            min-width: 300px;
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .add-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+            width: 100%;
+        }
+        .simple-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .simple-table th, .simple-table td {
+            border-bottom: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }

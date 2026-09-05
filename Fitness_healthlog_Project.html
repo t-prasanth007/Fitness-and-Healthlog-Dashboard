@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="fitness.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <script src="heallthlog.js"></script>
+<style>
+       .card-container{
+                display:flex;
+                justify-content: space-around;
+                
+       }     
+        .card{
+            border: 1px solid transparent;
+            border-radius: 8px;
+            min-width: 150px;
+            max-height: 130px;
+            background-color: aliceblue;
+            box-shadow: 5px 10px 8px 2px violet;
+            padding: 10px;
+        }
+        .card h3{
+                margin: 0 0 10px 0;
+                color: blue;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+        }
+
+        .card .value{
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            color: #2c3e50;
+        }
+
+        .static_data h3{
+            color: green;
+            font-size: 28px;
+            padding: 10px;
+            margin: 10px auto;
+        }
+
+        .actual_data li{
+            line-height: 1.5;
+        }
+        .card:hover{
+            transform: translate(-10px, 10px);
+        }
+        @media(max-width:768px){
+            .card-container{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding:10px;
+            
+
+            }
+        }
+
+         @media(max-width:480px){
+            .card-container{
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 20px;
+                padding:10px;
+                justify-self: center;
+
+            }
+        }
+         
+       
+</style>
+
+    </head>
+    <body>
+        
+    <nav class="sidebar" id="sidebar">
+    
+    <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">◀</button>
+
+    <div class="img1">
+        <img src="never_giveup.jpg" alt="User" width="40" height="40"/>
+        <a href="Fitness_healthlog_Project.html" class="nav-text">Dashboard</a>
+    <hr/>    
+    </div>
+    
+    <ul class="dashboard-element">
+        <li><a href="workouts.html"><span class="icon">🏋️</span><span class="nav-text">Workouts</span></a></li>
+        <li><a href="nutrition.html"><span class="icon">🍎</span><span class="nav-text">Nutrition</span></a></li>
+        <li><a href="health.html"><span class="icon">📊</span><span class="nav-text">Health Stats</span></a></li>
+        <li><a href="goals.html"><span class="icon">🎯</span><span class="nav-text">Goals</span></a></li>
+        <li><a href="reports.html"><span class="icon">📝</span><span class="nav-text">Reports</span></a></li>
+    </ul>
+
+    <div class="sidebar-logout">
+        <a href="login_page.html"><span class="icon">🚪</span><span class="nav-text">Logout</span></a>
+    </div>
+</nav>
+
+<header>
+            <div><h1>Overview of Health</h1>
+            <p class="quotes"><q>Lets do some Workout Today...</q></p>
+            </div>
+            <div class="search-container">
+                <span class="search-icon">&#128269;</span>
+                <input type="search" placeholder="Search">
+            </div>
+            <div class="setting-container">
+                <a href="#" class="nav-text1"><i class="fas fa-cog"></i><span >Settings</span></a>
+                <a href="#" class="nav-text1"><i class="fas fa-bell"></i><span>Notifications</span></a>
+                <a href="#" class="nav-text1"><i class="fas fa-user"></i><span>Account</span></a>
+            </div>
+        </header>
+
+        <main class="main-container">
+            <div class="card-container">
+                <div class="card">
+                    <h3><i class="fa-solid fa-dumbbell" style="color:#e74c3c; font-size: 24px" ></i>
+                    Muscle Recovery</h3>
+                    <p ><div class="value">55% </div><span>&#8593;</span> 50% This Day.</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fa-solid fa-shoe-prints" style="color:pink; margin-right:5px"></i>
+                    Steps</h3>
+                    <p><div class="value">1546 </div><span>&#8595;</span> 50% This Day</p>
+                </div>
+                <div class="card">
+                    
+                    <h3><i class="fa-solid fa-fire" style="color: #e67e22; font-size: 24px;"></i>
+                        Calories Burned</h3>
+                    <p><div class="value">55% </div><span>&#8593;</span> 50% This Day.</p>
+                </div>
+                <div class="card">
+                <h3>
+                <i class="fa-solid fa-heart-pulse" style="color: #e74c3c; margin-right: 5px;"></i> 
+                    Heart Rate
+                </h3>
+                <div class="value">72 <span class="unit">bpm</span></div>
+                <p>Status: <b style="color: #2ecc71;">Resting Normal</b></p>
+            </div>
+
+            </div>
+            <section class="static_data">
+            <h3>User Profile Data</h3>
+            <ul class="actual_data">
+                <li>ID : usr-042</li>
+                <li>Name : Alex</li>
+                <li>Age : 28</li>
+                <li>Gender : Male</li>
+                <li>Height : 168 cm</li>
+                <li>Weight : 65.5 kg</li>
+                <li>Goal weight : 62.0 kg</li>
+            </ul>
+            <h3>Daily Activty Log</h3>
+            <ul class="actual_data">
+                <li>2026-08-18: Steps: 8,420 | Active Minutes: 45 | Calories Burned: 2,150 | Workout: Running(30 mins)</li>
+                <li>2026-08-19: Steps: 10,150 | Active Minutes: 60 | Calories Burned: 2,410 | Workout: Strength(50 mins)</li>
+                <li>2026-08-18: Steps: 6,320 | Active Minutes: 20 | Calories Burned: 1,890 | Workout: Yoga(20 mins)</li>
+            </ul>
+            <h3>Vital Signs & Recovery Log</h3>
+            <ul class="actual_data">
+                <li>Resting Heart Rate : 62 bpm</li>
+                <li>Average Sleeping duration : 7.4 hours</li>
+                <li>Water Intake: 2.6 Liters</li>
+                <li>Daily Stress Level : 4/10</li>
+                
+            </ul>
+            <h3>Nutrition & Macro Log</h3>
+            <ul class="actual_data">
+                <li>Total Calories Target: 2,000 kcal</li>
+                <li>Calories Consumed : 1,850 kcal</li>
+                <li>Protein : 125g/130g target</li>
+                <li>Carbs : 180g/200g target</li>
+                <li>Fats: 55g/60g target</li>
+            </ul>
+       </section>     
+
+        </main>
+        
+        
+    </body>
+</html>

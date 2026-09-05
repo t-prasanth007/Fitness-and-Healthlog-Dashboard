@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="fitness.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <script src="heallthlog.js"></script>
+<style>
+        .card-container{
+            display: flex;
+            padding: 10px;
+            margin: 25px auto;
+            justify-content: space-between;
+            gap: 20px;
+            
+
+        }   
+        
+        .card{
+            border: 1px solid navy;
+            background-color: lightblue;
+            min-width: 210px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 1px 0px 4px 4px rgba(0, 0, 255, 0.55);
+        }
+
+        .card h3{
+            font-size: 1rem;
+            margin: 0 0 15px 0;
+            color: #666666;   
+        }
+        
+         .card .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .card .unit {
+            font-size: 1rem;
+            font-weight: normal;
+            color: #888888;
+        }
+        .trend{
+            color: green;
+            font-weight: bold;
+        }
+
+        /*summary*/
+
+        .summary {
+            
+            min-width: 450px;
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .summary-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid lightseagreen;
+        }
+        .card:hover{
+            transform: translate(-10px, 10px);
+        }
+
+        @media(max-width:768px){
+            .card-container{
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding:10px;
+
+            }
+        }
+
+         @media(max-width:600px){
+            .card-container{
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 20px;
+                padding:10px;
+                
+            }
+            .card{
+                
+                justify-self: center;
+            }
+            .summary-list li {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 12px 0;
+            border-bottom: 1px solid lightseagreen;
+        }
+        }
+        </style>
+
+    </head>
+    <body>
+        <nav class="sidebar" id="sidebar">
+    
+    <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">◀</button>
+
+    <div class="img1">
+        <img src="never_giveup.jpg" alt="User" width="40" height="40"/>
+        <a href="Fitness_healthlog_Project.html" class="nav-text">Dashboard</a>
+    <hr/>    
+    </div>
+    
+    <ul class="dashboard-element">
+        <li><a href="workouts.html"><span class="icon">🏋️</span><span class="nav-text">Workouts</span></a></li>
+        <li><a href="nutrition.html"><span class="icon">🍎</span><span class="nav-text">Nutrition</span></a></li>
+        <li><a href="health.html"><span class="icon">📊</span><span class="nav-text">Health Stats</span></a></li>
+        <li><a href="goals.html"><span class="icon">🎯</span><span class="nav-text">Goals</span></a></li>
+        <li><a href="reports.html"><span class="icon">📝</span><span class="nav-text">Reports</span></a></li>
+    </ul>
+
+    <div class="sidebar-logout">
+        <a href="login_page.html"><span class="icon">🚪</span><span class="nav-text">Logout</span></a>
+    </div>
+</nav>
+
+<header>
+    <div>
+            <h1>Progress Reports</h1>
+            <p class="quotes"><q>Analyze your fitness journey trends...</q></p>
+        </div>
+            <div class="search-container">
+                <span class="search-icon">&#128269;</span>
+                <input type="search" placeholder="Search">
+            </div>
+            <div class="setting-container">
+                <a href="#" class="nav-text1"><i class="fas fa-cog"></i><span >Settings</span></a>
+                <a href="#" class="nav-text1"><i class="fas fa-bell"></i><span>Notifications</span></a>
+                <a href="#" class="nav-text1"><i class="fas fa-user"></i><span>Account</span></a>
+            </div>
+        </header>
+
+        <main class="main-container">
+            <h2>Weekly analytics</h2>
+            
+            <div class="card-container">
+            <div class="card">
+                <h3>Avg. Daily Calories</h3>
+                <div class="value">2,140 <span class="unit">kcal</span></div>
+                <p>97% of weekly target met</p>
+            </div>
+            <div class="card">
+                <h3>Workouts Completed</h3>
+                <div class="value">4 <span class="unit">Sessions</span></div>
+                <p>Target: <b>5 sessions</b></p>
+            </div>
+            <div class="card">
+                <h3>Weight Trend</h3>
+                <div class="value">-0.8 <span class="unit">kg</span></div>
+                <p class="trend">📉 Downward trend (Target)</p>
+            </div>
+        </div>
+            
+        <div class="summary">
+                <h3>Weekly Insights Summary</h3>
+                <ul class="summary-list">
+                    <li>
+                        <span>Most Active Day</span>
+                        <strong>Wednesday (65 mins)</strong>
+                    </li>
+                    <li>
+                        <span>Macro Distribution Match</span>
+                        <strong style="color: #f1c40f;">82% Accurate</strong>
+                    </li>
+                    <li>
+                        <span>Water Goal Streak</span>
+                        <strong>5 Days Straight</strong>
+                    </li>
+                    <li>
+                        <span>Calorie Deficit Status</span>
+                        <span class="trend-positive">Active (-350 kcal/avg)</span>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+        
+    </body>
+</html>

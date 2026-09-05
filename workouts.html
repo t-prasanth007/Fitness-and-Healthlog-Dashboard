@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="fitness.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <script src="heallthlog.js"></script>
+        <style>
+
+            h2{
+                padding: 10px;
+                text-align: center;
+            }
+           
+        .workout-grid{
+            display : flex;
+            justify-content: space-around;
+            padding-top: 10px;
+            flex-wrap: wrap;
+            
+        }
+        .workout-card{
+            width : 240px;
+            height : auto;
+            border : 1px solid grey;
+            border-radius: 8px;
+            box-shadow: 1px 1px 0px 0px grey;
+            padding: 10px;
+            line-height: 1.5;    
+        }
+        .full-body{
+            background-color: lightseagreen;
+        }
+        .lower-body{
+            background-color: lightsteelblue;
+        }
+        .yoga{
+            background-color: lightskyblue;
+        }
+        .start-btn{
+            width: fit-content;
+            display: block;
+            margin: 20px auto;    
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            color: #ffffff;
+            background-color: #0070f3;
+            font-size: 16px;
+            font-weight: 600;
+
+        }
+
+       
+        .start-btn:hover{
+            background-color: #0051a8;
+        }
+
+        .workout-card:hover{
+            transform: translate(-10px, 10px);
+        }
+        
+        @media(max-width:900px){
+            .workout-grid{
+                display: flex;
+                flex-direction: column;
+                gap: 25px;
+                justify-content: center;
+                align-items: center;
+
+            }
+        }
+        
+        </style>
+
+    </head>
+    <body>
+        <nav class="sidebar" id="sidebar">
+    
+    <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">◀</button>
+
+    <div class="img1">
+        <img src="never_giveup.jpg" alt="User" width="40" height="40"/>
+        <a href="Fitness_healthlog_Project.html" class="nav-text">Dashboard</a>
+    <hr/>    
+    </div>
+    
+    <ul class="dashboard-element">
+        <li><a href="workouts.html"><span class="icon">🏋️</span><span class="nav-text">Workouts</span></a></li>
+        <li><a href="nutrition.html"><span class="icon">🍎</span><span class="nav-text">Nutrition</span></a></li>
+        <li><a href="health.html"><span class="icon">📊</span><span class="nav-text">Health Stats</span></a></li>
+        <li><a href="goals.html"><span class="icon">🎯</span><span class="nav-text">Goals</span></a></li>
+        <li><a href="reports.html"><span class="icon">📝</span><span class="nav-text">Reports</span></a></li>
+    </ul>
+
+    <div class="sidebar-logout">
+        <a href="login_page.html"><span class="icon">🚪</span><span class="nav-text">Logout</span></a>
+    </div>
+</nav>
+
+<header>
+
+    <div>
+            <h1>Workout Tracker</h1>
+            <p class="quotes"><q>Push your limits, track your exercises...</q></p>
+        </div>
+            
+            <div class="search-container">
+                <span class="search-icon">&#128269;</span>
+                <input type="search" placeholder="Search">
+            </div>
+            <div class="setting-container">
+                <a href="#" class="nav-text1"><i class="fas fa-cog"></i><span >Settings</span></a>
+                <a href="#" class="nav-text1"><i class="fas fa-bell"></i><span>Notifications</span></a>
+                <a href="#" class="nav-text1"><i class="fas fa-user"></i><span>Account</span></a>
+            </div>
+        </header>
+<script>
+function toggleSidebar() {
+                const sidebar = document.getElementById('sidebar');
+                sidebar.classList.toggle('collapsed');
+            }
+        </script>
+       <main class="main-container"> 
+        
+  <h2>Workout Routines</h2>
+  <div class="workout-grid">
+    
+    <!-- Full Body Workout Card -->
+    <div class="workout-card full-body">
+      <div class="workout-icon">&#127947;</div>
+      <h3>Full Body Workout</h3>
+      <p class="workout-meta">⏱️ 45 mins | 🔥 350 kcal</p>
+      <ul class="exercise-list">
+        <li>Goblet Squats (3 sets x 12 reps)</li>
+        <li>Push-Ups (3 sets x 10 reps)</li>
+        <li>Dumbbell Rows (3 sets x 12 reps)</li>
+        <li>Plank (3 sets x 45 secs)</li>
+      </ul>
+      <button class="start-btn">Start Workout</button>
+    </div>
+
+    <!-- Lower Body Workout Card -->
+    <div class="workout-card lower-body">
+      <div class="workout-icon">🦵</div>
+      <h3>Lower Body Workout</h3>
+      <p class="workout-meta">⏱️ 40 mins | 🔥 300 kcal</p>
+      <ul class="exercise-list">
+        <li>Romanian Deadlifts (4 sets x 10 reps)</li>
+        <li>Walking Lunges (3 sets x 12 reps/leg)</li>
+        <li>Glute Bridges (3 sets x 15 reps)</li>
+        <li>Calf Raises (4 sets x 20 reps)</li>
+      </ul>
+      <button class="start-btn">Start Workout</button>
+    </div>
+
+    <!-- Yoga Card -->
+    <div class="workout-card yoga">
+      <div class="workout-icon">🧘‍♀️</div>
+      <h3>Vinyasa Yoga Flow</h3>
+      <p class="workout-meta">⏱️ 30 mins | 🔥 120 kcal</p>
+      <ul class="exercise-list">
+        <li>Sun Salutations (Warm-up)</li>
+        <li>Warrior II to Triangle Pose</li>
+        <li>Downward Dog Variations</li>
+        <li>Savasana (Deep Relaxation)</li>
+      </ul>
+      <button class="start-btn">Start Flow</button>
+    </div>
+    
+  </div>
+
+</main>
+
+        
+    </body>

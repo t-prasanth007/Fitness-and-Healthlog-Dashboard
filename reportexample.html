@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker - Reports</title>
+    <link rel="stylesheet" href="fitness.css">
+    
+    <!-- Load Chart.js for data visualization -->
+    <script src="https://jsdelivr.net"></script>
+
+    <style>
+        /* Inherited dashboard card layouts */
+        .card-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .card {
+            border: 1px solid transparent;
+            background-color: whitesmoke;
+            border-radius: 8px;
+            box-shadow: 1px 0px 4px 4px rgba(0, 0, 255, 0.15); /* Softened from bright blue for analytics aesthetics */
+            padding: 20px;
+            min-width: 210px;
+            flex: 1;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            margin: 0 0 15px 0;
+            color: #666666;
+        }
+
+        .card .value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .card .unit {
+            font-size: 1rem;
+            font-weight: normal;
+            color: #888888;
+        }
+
+        /* Reports-specific chart blocks */
+        .report-row {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            flex: 1;
+            min-width: 450px;
+            background: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+
+        /* Summary lists */
+        .summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .summary-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .summary-list li:last-child {
+            border-bottom: none;
+        }
+
+        .trend-positive {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Layout Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">◀</button>
+        <div class="img1">
+            <img src="C:\Users\T.T.VASANTH\prasanth 3 month internship\fbimg.jpg" alt="User" width="40" height="40"/>
+            <a href="Fitness_healthlog_Project.html" class="nav-text">Dashboard</a>
+            <hr/>    
+        </div>
+        <ul class="dashboard-element">
+            <li><a href="workouts.html"><span class="icon">🏋️</span><span class="nav-text">Workouts</span></a></li>
+            <li><a href="nutrition.html"><span class="icon">🍎</span><span class="nav-text">Nutrition</span></a></li>
+            <li><a href="health.html"><span class="icon">📊</span><span class="nav-text">Health Stats</span></a></li>
+            <li><a href="goals.html"><span class="icon">🎯</span><span class="nav-text">Goals</span></a></li>
+            <li><a href="reports.html" class="active"><span class="icon">📝</span><span class="nav-text">Reports</span></a></li>
+        </ul>
+        <div class="sidebar-logout">
+            <a href="login_page.html"><span class="icon">🚪</span><span class="nav-text">Logout</span></a>
+        </div>
+    </nav>
+
+    <!-- Global App Header -->
+    <header>
+        <div>
+            <h1>Progress Reports</h1>
+            <p>Analyze your fitness journey trends...</p>
+        </div>
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="search" placeholder="Search report metrics...">
+        </div>
+        <div class="setting-container">
+            <p>Settings</p>
+            <p>Notifications</p>
+            <p>Account</p>
+        </div>
+    </header>
+
+    <!-- Content Workspace -->
+    <main class="main-container">
+        <h2>Weekly Analytics</h2>
+
+        <!-- Performance Summary Cards -->
+        <div class="card-container">
+            <div class="card">
+                <h3>Avg. Daily Calories</h3>
+                <div class="value">2,140 <span class="unit">kcal</span></div>
+                <p>97% of weekly target met</p>
+            </div>
+            <div class="card">
+                <h3>Workouts Completed</h3>
+                <div class="value">4 <span class="unit">Sessions</span></div>
+                <p>Target: <b>5 sessions</b></p>
+            </div>
+            <div class="card">
+                <h3>Weight Trend</h3>
+                <div class="value">-0.8 <span class="unit">kg</span></div>
+                <p class="trend-positive">📉 Downward trend (Target)</p>
+            </div>
+        </div>
+
+        <!-- Analytical Graphs Section -->
+        <div class="report-row">
+            <!-- Calorie Tracker Component -->
+            <div class="box">
+                <h3>Caloric Balance vs. Target</h3>
+                <div class="chart-wrapper">
+                    <canvas id="calorieChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Workout Time Distribution Chart -->
+            <div class="box">
+                <h3>Weekly Insights Summary</h3>
+                <ul class="summary-list">
+                    <li>
+                        <span>Most Active Day</span>
+                        <strong>Wednesday (65 mins)</strong>
+                    </li>
+                    <li>
+                        <span>Macro Distribution Match</span>
+                        <strong style="color: #f1c40f;">82% Accurate</strong>
+                    </li>
+                    <li>
+                        <span>Water Goal Streak</span>
+                        <strong>5 Days Straight</strong>
+                    </li>
+                    <li>
+                        <span>Calorie Deficit Status</span>
+                        <span class="trend-positive">Active (-350 kcal/avg)</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Visual Rendering Logic Logic -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const ctx = document.getElementById('calorieChart').getContext('2d');
+            
+            // Build the comparison data array graph
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [
+                        {
+                            label: 'Consumed (kcal)',
+                            data:,
+                            borderColor: '#3498db',
+                            backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                            borderWidth: 3,
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Target Limit',
+                            data:,
+                            borderColor: '#e74c3c',
+                            borderDash:,
+                            borderWidth: 2,
+                            pointStyle: 'none',
+                            pointRadius: 0,
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            suggestedMin: 1000,
+                            suggestedMax: 2600
+                        }
+                    }
+                }
+            });
+        });
+
+        // Simple mock function for global layout consistency
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('collapsed');
+        }
+    </script>
+</body>
+</html>
