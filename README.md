@@ -18,8 +18,6 @@ text
 ├── nutrition.css               # Specific styling for macro/diet logging modules
 └── assets/                     # Graphic resources (health.avif, logos, etc.)
 
-Use code with caution.
-
 ### ✨ Key Features
 
 * **Session Persistent Login:** Simple onboarding form that stores the user session locally across pages.
