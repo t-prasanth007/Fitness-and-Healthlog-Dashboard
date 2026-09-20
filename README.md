@@ -11,7 +11,6 @@ text
 ├── login_page.html             # Secure-facing user portal & entry point<br>
 ├── health.html                 # Main user dashboard for daily telemetry<br>
 ├── goals.html                  # Interface for target setting & benchmarks<br>
-├── goals_example.html          # Reference layout for pre-configured goals<br>
 ├── heallthlog.js               # Application logic, data retention, & state management<br>
 ├── fitness.css                 # Base design system and layout configuration<br>
 ├── alignment_screen.css        # Adaptive viewports and container scaling properties<br>
