@@ -33,6 +33,13 @@ text
 
 ## 📸 Screenshot
 
+<img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/a4e24e49-b400-4737-b316-eb918d35838e" />
+
+<img width="1366" height="728" alt="image" src="https://github.com/user-attachments/assets/dc88e30d-1390-4d96-9a9f-04f029f2f29b" />
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/bbfa9771-c364-40ce-b3d9-19cd4c112446" />
+
+
 
 ### 🚀 How to Run the Project Locally
 
